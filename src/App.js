@@ -64,7 +64,18 @@ const App = () => {
       <Grid>
         {list.map(({ title, par }, i) => (
           <Grid.Col span={4} key={`ìndex ${i}`}>
-            <Card title={title} par={par} lesson={lesson} a={i} />
+            <Card
+              title={title}
+              par={par}
+              lesson={lesson}
+              i={i}
+              click={() => {
+                let copyList = [...list];
+                copyList.splice(i, 1);
+                setList(copyList);
+                console.log("Dışardan tıklanıldı");
+              }}
+            />
           </Grid.Col>
         ))}
       </Grid>
