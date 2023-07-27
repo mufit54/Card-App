@@ -4,46 +4,40 @@ import Card from "./COMPENENTS/Card";
 import { useState } from "react";
 import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
-let arr = [
-  {
-    id: 1,
-    title: "dağ 1",
-    par: "acıklama 1",
-  },
-  {
-    id: 2,
-    title: "dağ 2",
-    par: "acıklama 2",
-  },
-  {
-    id: 3,
-    title: "dağ 3",
-    par: "acıklama 3",
-  },
-  {
-    id: 4,
-    title: "dağ 4",
-    par: "acıklama 4",
-  },
-];
-
 //const kare = (sayi) => sayi * sayi;
 
 const App = () => {
   const [title, setTitle] = useState("");
   const [paragraf, setParagraph] = useState("");
-  const [list, setList] = useState(arr);
+  const [list, setList] = useState([
+    {
+      id: 1,
+      title: "dağ 1",
+      par: "acıklama 1",
+    },
+    {
+      id: 2,
+      title: "dağ 2",
+      par: "acıklama 2",
+    },
+    {
+      id: 3,
+      title: "dağ 3",
+      par: "acıklama 3",
+    },
+  ]);
   const [lesson, setLesson] = useState(11);
   const click = () => {
     setTitle("");
     setParagraph("");
-    const copyList = [...list];
-    copyList.push({
-      id: 5,
-      title: title,
-      par: paragraf,
-    });
-    setList(copyList);
+    setList([
+      ...list,
+      {
+        id: 5,
+        title: title,
+        par: paragraf,
+      },
+    ]);
   };
   return (
     <Container>
